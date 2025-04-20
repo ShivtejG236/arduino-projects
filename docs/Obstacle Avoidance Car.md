@@ -65,17 +65,10 @@ Else:
   Move Forward
 ```
 
----
-
-## 📸 Demo
-
-> _(Add a YouTube link or GIF of the bot in action here)_
-
----
 
 ## 🛠️ Future Improvements
 
-- Add IR sensors for line following
-- Integrate Bluetooth/Wi-Fi (ESP8266) for remote control
-- Implement obstacle memory or path planning
+- Adding IR sensors for line following
+- Integrating Bluetooth/Wi-Fi (ESP8266) for remote control
+- Implementing obstacle memory or path planning
 

@@ -1,89 +1,61 @@
-🤖 Obstacle Avoiding Car (Arduino + L293D)
+# 🤖 Obstacle Avoiding Car (Arduino + L293D)
 
-This is an autonomous obstacle-avoiding robot car powered by an Arduino Uno, L293D Motor Driver Shield, HC-SR04 Ultrasonic Sensor, and a Servo Motor.
+This is an autonomous obstacle-avoiding robot car powered by an **Arduino Uno**, **L293D Motor Driver Shield**, **HC-SR04 Ultrasonic Sensor**, and a **Servo Motor**.
 
 It scans for obstacles using the ultrasonic sensor mounted on a servo, decides the best direction, and maneuvers accordingly using four DC motors.
 
-🔧 Components Used
+---
 
-Component
+## 🔧 Components Used
 
-Description
+| Component                 | Description                          |
+|--------------------------|--------------------------------------|
+| Arduino Uno              | Main microcontroller board           |
+| L293D Motor Driver Shield| Controls 4 DC motors                 |
+| HC-SR04 Ultrasonic Sensor| Detects obstacles in front           |
+| Servo Motor (SG90)       | Rotates sensor to scan surroundings  |
+| 4x DC Motors             | Drives the car                       |
+| Power Supply (Battery)   | Powers the system                    |
 
-Arduino Uno
+---
 
-Main microcontroller board
+## ⚡ Wiring Overview
 
-L293D Motor Driver Shield
+| Arduino Pin (via Shield) | Connected To            |
+|--------------------------|--------------------------|
+| A0                       | Ultrasonic TRIG          |
+| A1                       | Ultrasonic ECHO          |
+| D9 (SERVO 1)             | Servo signal wire        |
+| M1–M4                    | DC motors via L293D shield|
 
-Controls 4 DC motors
+> **Note:** Servo is connected to **SERVO 1 port** on the L293D shield, which maps to **digital pin 9**.
 
-HC-SR04 Ultrasonic Sensor
+---
 
-Detects obstacles in front
-
-Servo Motor (SG90)
-
-Rotates sensor to scan surroundings
-
-4x DC Motors
-
-Drives the car
-
-Power Supply (Battery)
-
-Powers the system
-
-⚡ Wiring Overview
-
-Pin on Arduino (via Shield)
-
-Connected To
-
-A0
-
-Ultrasonic TRIG
-
-A1
-
-Ultrasonic ECHO
-
-D9 (SERVO 1)
-
-Servo signal wire
-
-M1–M4
-
-DC motors (connected to L293D shield motor ports)
-
-Servo is connected to SERVO 1 port on the L293D shield, which maps to digital pin 9.
-
-📂 Libraries Required
+## 📂 Libraries Required
 
 Install these from the Arduino Library Manager:
 
-AFMotor – for motor control
+- [`AFMotor`](https://github.com/adafruit/Adafruit-Motor-Shield-library) – Motor control
+- [`NewPing`](https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home) – Reliable ultrasonic distance sensing
+- `Servo` – Built-in with Arduino IDE
 
-NewPing – for reliable ultrasonic distance sensing
+---
 
-Servo – built-in in the Arduino IDE
+## 🚀 How It Works
 
-🚀 How it Works
+1. Servo rotates the ultrasonic sensor to look left and right.
+2. If an obstacle is detected in front:
+   - Move backward briefly.
+   - Scan both sides.
+   - Turn toward the side with more clearance.
+3. If path is clear, move forward.
 
-The servo rotates the ultrasonic sensor to look left and right.
+---
 
-If an obstacle is detected close in front, it:
+## 🧠 Logic Flow
 
-Moves backward slightly.
-
-Looks to both sides.
-
-Turns in the direction with more space.
-
-If no obstacle is nearby, it moves forward.
-
-🧠 Logic Flow (in loop)
-
+```text
 If distance ≤ 15 cm:
   Stop
   Move Backward briefly
@@ -91,16 +63,19 @@ If distance ≤ 15 cm:
   Turn toward clearer side
 Else:
   Move Forward
+```
 
-📹 Demo
+---
 
-(Add a YouTube link or attach a short GIF here showing your bot in action!)
+## 📸 Demo
 
-🛠️ Future Improvements
+> _(Add a YouTube link or GIF of the bot in action here)_
 
-Add IR sensors for line following.
+---
 
-Integrate Bluetooth or Wi-Fi (ESP8266) for remote control.
+## 🛠️ Future Improvements
 
-Obstacle memory with simple path planning.
+- Add IR sensors for line following
+- Integrate Bluetooth/Wi-Fi (ESP8266) for remote control
+- Implement obstacle memory or path planning
 

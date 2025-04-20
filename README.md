@@ -16,8 +16,8 @@ Touchless sanitizer dispenser that activates a pump when a hand is detected with
 ## 🧾 Contents
 
 - `code/` - Arduino sketch files for all projects
-- `docs/` - Supporting documentation including the project summary
-- `diagrams/` - Circuit diagrams (obstacle car circuit included)
+- `docs/` - Supporting documentation & project summary
+- `diagrams/` - Circuit diagrams
 
 ## 📄 Documentation
 See [`docs/Arduino_Projects_Summary.pdf`](docs/Arduino_Projects_Summary.pdf) for a complete overview.

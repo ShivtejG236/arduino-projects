@@ -65,6 +65,7 @@ Else:
   Move Forward
 ```
 
+---
 
 ## 🛠️ Future Improvements
 
